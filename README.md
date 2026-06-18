@@ -2,6 +2,8 @@
 
 Warm honey-amber theme for [Zed](https://zed.dev). Three variants: **Light Soft**, **Dark Soft**, **Black**.
 
+Companion themes for **Claude Code** live in [`claude-code/`](./claude-code/) — same palette, same three variants.
+
 Derived from [Vitesse](https://github.com/antfu/vitesse-theme) (via [jordy25519/zed-theme-vitesse](https://github.com/jordy25519/zed-theme-vitesse)) with the sage accent swapped for honey-amber, italic comments, visible borders, and fully populated UI surfaces.
 
 ## Palette

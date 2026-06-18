@@ -1,0 +1,51 @@
+{
+  "name": "Dolmios (midnight)",
+  "base": "dark-ansi",
+  "overrides": {
+    "claude": "#c98a7d",
+    "claudeShimmer": "#dba89c",
+    "text": "#dbd7ca",
+    "inverseText": "#000000",
+    "inactive": "#AFACA2",
+    "inactiveShimmer": "#8e8b81",
+    "subtle": "#6D6B65",
+    "suggestion": "#c98a7d",
+    "permission": "#4a4a4a",
+    "permissionShimmer": "#6a6a6a",
+    "remember": "#5DA994",
+
+    "success": "#4d9375",
+    "error": "#cb7676",
+    "warning": "#d4976c",
+    "warningShimmer": "#e0ad88",
+    "merged": "#c47891",
+
+    "promptBorder": "#4a4a4a",
+    "promptBorderShimmer": "#6a6a6a",
+    "planMode": "#5DA994",
+    "autoAccept": "#d4976c",
+    "bashBorder": "#9e7748",
+    "ide": "#5DA994",
+    "fastMode": "#c98a7d",
+    "fastModeShimmer": "#dba89c",
+
+    "diffAdded": "#172C23",
+    "diffRemoved": "#3D2323",
+    "diffAddedDimmed": "#0B1610",
+    "diffRemovedDimmed": "#1D1011",
+    "diffAddedWord": "#23422D",
+    "diffRemovedWord": "#5B3434",
+
+    "userMessageBackground": "#121212",
+    "userMessageBackgroundHover": "#161410",
+    "messageActionsBackground": "#2a2a2a",
+    "bashMessageBackgroundColor": "#111110",
+    "memoryBackgroundColor": "#111110",
+    "selectionBg": "#2a2a2a",
+
+    "rate_limit_fill": "#c98a7d",
+    "rate_limit_empty": "#2a2a2a",
+    "briefLabelYou": "#dbd7ca",
+    "briefLabelClaude": "#c98a7d"
+  }
+}

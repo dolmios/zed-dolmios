@@ -1,0 +1,51 @@
+{
+  "name": "Dolmios (light, soft)",
+  "base": "light-ansi",
+  "overrides": {
+    "claude": "#b56959",
+    "claudeShimmer": "#d4847a",
+    "text": "#2a2b25",
+    "inverseText": "#F1F0E9",
+    "inactive": "#525248",
+    "inactiveShimmer": "#7a7a70",
+    "subtle": "#8E8E87",
+    "suggestion": "#b56959",
+    "permission": "#A09C8B",
+    "permissionShimmer": "#bdb9ab",
+    "remember": "#2e8f82",
+
+    "success": "#1e754f",
+    "error": "#ab5959",
+    "warning": "#a65e2b",
+    "warningShimmer": "#c47a4a",
+    "merged": "#8b3a52",
+
+    "promptBorder": "#A09C8B",
+    "promptBorderShimmer": "#bdb9ab",
+    "planMode": "#2e8f82",
+    "autoAccept": "#a65e2b",
+    "bashBorder": "#7a5230",
+    "ide": "#2e8f82",
+    "fastMode": "#b56959",
+    "fastModeShimmer": "#d4847a",
+
+    "diffAdded": "#C7D7CA",
+    "diffRemoved": "#E3D2CC",
+    "diffAddedDimmed": "#D9E3DA",
+    "diffRemovedDimmed": "#ECE5E1",
+    "diffAddedWord": "#A8C5AE",
+    "diffRemovedWord": "#D3B6AC",
+
+    "userMessageBackground": "#E8E6DD",
+    "userMessageBackgroundHover": "#DDDBD2",
+    "messageActionsBackground": "#DDDBD2",
+    "bashMessageBackgroundColor": "#EAE8E0",
+    "memoryBackgroundColor": "#EAE8E0",
+    "selectionBg": "#D4D1C2",
+
+    "rate_limit_fill": "#b56959",
+    "rate_limit_empty": "#D4D1C2",
+    "briefLabelYou": "#2a2b25",
+    "briefLabelClaude": "#b56959"
+  }
+}
