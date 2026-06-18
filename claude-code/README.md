@@ -6,9 +6,9 @@ Requires Claude Code **v2.1.118 or later**.
 
 ## Variants
 
-- `dolmios-light-soft.json` — warm cream bg, dark text
-- `dolmios-dark-soft.json` — warm charcoal bg, cream text
-- `dolmios-midnight.json` — true black bg, cream text
+- `dolmios-light-soft.json`: warm cream bg, dark text
+- `dolmios-dark-soft.json`: warm charcoal bg, cream text
+- `dolmios-midnight.json`: true black bg, cream text
 
 ## Install
 
@@ -59,4 +59,4 @@ Unset tokens fall through to the base preset (`light-ansi` for the light variant
 
 - Claude Code custom themes don't support "auto" light/dark switching. Pick one manually when you switch your Zed theme.
 - Colors don't accept alpha channels (`#rrggbb` only, no `#rrggbbaa`), so all "muted" colors are precomputed blends against the bg.
-- Inside Zed's integrated terminal, ANSI colors come from the active Zed theme — so even the unstyled base palette already matches Dolmios.
+- Inside Zed's integrated terminal, ANSI colors come from the active Zed theme, so even the unstyled base palette already matches Dolmios.
