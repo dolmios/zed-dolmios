@@ -1,0 +1,7 @@
+id = "zed-dolmios"
+name = "Dolmios"
+version = "0.1.0"
+schema_version = 1
+authors = ["Jackson Dolman <jackson@granthelp.com.au>"]
+description = "Warm honey-amber theme for Zed. Light Soft, Dark Soft, and Black variants."
+repository = "https://github.com/jacksondolman/zed-dolmios"
