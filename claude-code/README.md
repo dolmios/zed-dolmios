@@ -1,8 +1,45 @@
 # Dolmios for Claude Code
 
-Companion themes for [Claude Code](https://code.claude.com) that mirror the Zed Dolmios palette.
+Portable [Claude Code](https://code.claude.com) config: themes, global settings, statusline, and the MCP setup that follows me across machines and repos.
 
 Requires Claude Code **v2.1.118 or later**.
+
+## New machine setup
+
+One command symlinks the config in this repo into `~/.claude` (edits here hot-reload into running sessions):
+
+```bash
+./bootstrap.sh
+```
+
+That covers everything version-controlled here. Two things stay machine-local and are set up once per machine:
+
+1. **MCP servers** (see below) — the definitions, run once.
+2. **MCP OAuth tokens** — re-auth in Claude Code with `/mcp` (linear, sentry, etc). Tokens live in the local keychain, never in this repo.
+
+## What's tracked here
+
+| File | Symlinked to | Notes |
+|------|--------------|-------|
+| `settings.json` | `~/.claude/settings.json` | Theme, voice, plugins, TUI mode |
+| `statusline-command.sh` | `~/.claude/statusline-command.sh` | Model + dir + git branch/dirty statusline |
+| `dolmios-*.json` | `~/.claude/themes/` | Theme variants (below) |
+
+> Note: `settings.json` is written by Claude Code when you change settings in-app (`/theme`, voice toggles). If a future version writes it via atomic rename, the symlink can detach into a plain file. If your in-app changes stop showing up in `git status` here, re-run `./bootstrap.sh` to re-link, then copy any drifted values across.
+
+## MCP servers
+
+MCP config is per-machine, not in this repo (definitions live in `~/.claude.json`, tokens in the keychain). Personal servers I want in **every** repo are added at user scope:
+
+```bash
+claude mcp add --scope user --transport http linear   https://mcp.linear.app/mcp
+claude mcp add --scope user --transport http sentry   https://mcp.sentry.dev/mcp
+claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp
+```
+
+Project-specific servers (e.g. a repo's Supabase / logging) stay in that repo's committed `.mcp.json` via `claude mcp add --scope project <name> ...`.
+
+Check state anytime: `claude mcp list` · inspect one: `claude mcp get <name>` · remove: `claude mcp remove --scope user <name>`.
 
 ## Variants
 

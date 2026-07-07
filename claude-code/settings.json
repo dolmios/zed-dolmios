@@ -1,0 +1,14 @@
+{
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  },
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "skipWorkflowUsageWarning": true,
+  "theme": "custom:dolmios-light-soft",
+  "agentPushNotifEnabled": true,
+  "voiceEnabled": true
+}
