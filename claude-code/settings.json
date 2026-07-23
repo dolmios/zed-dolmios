@@ -1,5 +1,5 @@
 {
-  "model": "sonnet",
+  "model": "opus[1m]",
   "skillOverrides": {
     "artifact-design": "off"
   },
@@ -18,6 +18,7 @@
   },
   "skipWorkflowUsageWarning": true,
   "theme": "custom:dolmios-light-soft",
+  "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
   "voiceEnabled": true
 }
