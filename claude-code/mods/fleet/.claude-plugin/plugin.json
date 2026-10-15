@@ -1,0 +1,1 @@
+{ "name": "fleet", "version": "0.1.0", "description": "Pane and status entry listing every local Claude session, the ones waiting on you first", "types": "./types/index.d.ts" }
