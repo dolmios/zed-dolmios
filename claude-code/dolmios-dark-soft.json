@@ -41,6 +41,7 @@
     "messageActionsBackground": "#3a3a3a",
     "bashMessageBackgroundColor": "#2c2b27",
     "memoryBackgroundColor": "#2c2b27",
+    "composerSidebarBackground": "#222222",
     "selectionBg": "#3a3a3a",
 
     "rate_limit_fill": "#c98a7d",
