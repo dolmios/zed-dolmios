@@ -209,16 +209,43 @@ def zed_terminals():
     return out
 
 
-def tab_for(name, tabs, names):
-    """The tab whose every word is a word of this chat's name, when no other live chat matches it too."""
-    def words(text):
-        return set(w for w in re.split(r"[\s\-_]+", text.lower()) if w)
+DATE_WORD = re.compile(r"^(\d{1,2}[a-z]{3}|[a-z]{3}\d{1,2})$")  # 15oct, oct15
+TAB_OVERRIDES = f"{HOME}/.claude/fleet-tabs.json"  # {"<chat name>": "<tab title>"} for pairs no rule can find
 
-    def fits(tab, chat):
-        return words(tab) <= words(chat)
 
-    hits = [t for t in tabs if fits(t, name) and sum(fits(t, n) for n in names) == 1]
-    return max(hits, key=len) if hits else ""
+def name_words(text):
+    return [w for w in re.split(r"[\s\-_]+", text.lower()) if w and not DATE_WORD.match(w)]
+
+
+def word_fits(tab_word, chat_word):
+    """Same word, one inside the other (review in codereview), or the same first 3 letters (deps, dependency)."""
+    if tab_word == chat_word:
+        return True
+    short, long_ = sorted((tab_word, chat_word), key=len)
+    return len(short) >= 3 and (short in long_ or tab_word[:3] == chat_word[:3])
+
+
+def coverage(tab, chat):
+    """Share of the chat's words the tab names, when every tab word fits one; else 0."""
+    tw, cw = name_words(tab), name_words(chat)
+    if not tw or not cw or not all(any(word_fits(t, c) for c in cw) for t in tw):
+        return 0
+    return sum(any(word_fits(t, c) for t in tw) for c in cw) / len(cw)
+
+
+def match_tabs(names, tabs):
+    """{chat name: tab title}. Overrides first, then each tab to the chat it covers best, best pairs first."""
+    try:
+        out = {k: v for k, v in json.load(open(TAB_OVERRIDES)).items() if k in names and v in tabs}
+    except (OSError, ValueError):
+        out = {}
+    pairs = sorted(((coverage(t, n), n, t) for t in tabs for n in names), reverse=True)
+    used = set(out.values())
+    for score, name, tab in pairs:
+        if score > 0 and name not in out and tab not in used:
+            out[name] = tab
+            used.add(tab)
+    return out
 
 
 def first_line(text):
@@ -324,9 +351,9 @@ def snapshot():
                 "subs": subagents(found[0], now, f.get("status") == "waiting") if found else [],
             }
         )
-    names = [r["name"] for r in rows]
+    matched = match_tabs([r["name"] for r in rows], tabs)
     for r in rows:
-        r["tab"] = tab_for(r["name"], tabs, names)
+        r["tab"] = matched.get(r["name"], "")
         r["group"] = group_of(r)
     rows.sort(key=lambda r: (GROUP_ORDER[r["group"]], -r["secs"]))
     return {"sessions": rows, "handoffs": handoffs(roots - {""}, now)}
